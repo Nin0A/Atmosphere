@@ -1,0 +1,42 @@
+<!DOCTYPE xsl:stylesheet [
+  <!ELEMENT xsl:stylesheet (xsl:output, xsl:template)>
+  <!ATTLIST xsl:stylesheet xmlns:xsl CDATA #REQUIRED
+                          version CDATA #REQUIRED>
+
+  <!ELEMENT xsl:output EMPTY>
+  <!ATTLIST xsl:output method CDATA #REQUIRED
+                       encoding CDATA #REQUIRED
+                       indent CDATA #REQUIRED>
+
+  <!ELEMENT xsl:template (html)>
+  <!ATTLIST xsl:template match CDATA #REQUIRED>
+
+  <!ELEMENT html (body)>
+  
+  <!ELEMENT body (div)>
+  
+  <!ELEMENT div (xsl:for-each)>
+  <!ATTLIST div class CDATA #REQUIRED>
+  
+  <!ELEMENT xsl:for-each (div*)>
+  <!ATTLIST xsl:for-each select CDATA #REQUIRED>
+  
+  <!ELEMENT div (div, div, div)>
+  <!ATTLIST div class CDATA #REQUIRED>
+  
+  <!ELEMENT div (#PCDATA)>
+  
+  <!ELEMENT previsions (echeance+)>
+  
+  <!ELEMENT echeance (pluie?, risque_neige?, temperature)>
+  <!ATTLIST echeance timestamp CDATA #REQUIRED>
+  
+  <!ELEMENT pluie (#PCDATA)>
+  
+  <!ELEMENT risque_neige (#PCDATA)>
+  
+  <!ELEMENT temperature (level+)>
+  
+  <!ELEMENT level (#PCDATA)>
+  <!ATTLIST level val CDATA #REQUIRED>
+]>
